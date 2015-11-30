@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd ..
+mkdir -p ./log
+./bin/binstore -f ./conf/binstore.yaml
+

@@ -1,0 +1,68 @@
+common:
+ log_dir: ./log
+ log_level: 16
+
+http_server:
+ port: 5025
+ read_timeout_ms: 300
+ write_timeout_ms: 500
+
+dedup:
+ database_name: pic
+ collection_name: dedup
+ conn_timeout_ms: 100
+ socket_timeout_ms: 500
+ operation_timeout_ms: 500
+ mgo_pool_size: 1000
+ dedup_hosts:
+  - 10.10.16.232:11010
+  - 10.10.17.253:11010
+  - 10.10.29.95:11010
+
+km:
+ fcrypt_key: 123aaccs2d
+ key_tag: ff5837
+ conn_timeout_ms: 100
+ read_timeout_ms: 100
+ write_timeout_ms: 100
+ idle_timeout_ms: 30000
+ min_conn_each: 100
+ max_conn_each: 1000
+ odd_id_redis_addr: 10.10.96.67:6393
+ even_id_redis_addr: 10.10.88.146:6394
+
+broker:
+ max_message_size: 10485760
+ metadata_refresh_interval_ms: 5000
+ conn_timeout_ms: 100
+ read_timeout_ms: 500
+ write_timeout_ms: 500
+ #write_disabled_partitions:
+ # - "0-0"
+ broker_hosts:
+  - 10.10.16.232:5026
+  - 10.10.17.253:5026
+  - 10.10.29.95:5026
+
+store:
+ database_name: pic
+ collection_name: store
+ conn_timeout_ms: 100
+ socket_timeout_ms: 500
+ operation_timeout_ms: 1000
+ mgo_pool_size: 1000
+ write_concern: 1
+ store_hosts:
+  - 10.10.75.19:11015
+
+zk:
+ session_timeout_ms: 5000
+ update_interval_ms: 60000
+ fail_retry_interval_ms: 1000
+ zk_chroot: /mq/pic
+ zk_hosts:
+  - 10.10.16.232:2188
+  - 10.10.17.253:2188
+  - 10.10.29.95:2188
+  - 10.10.95.67:2188
+  - 10.10.88.146:2188
