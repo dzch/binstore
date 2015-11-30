@@ -25,7 +25,7 @@ package binstore
 
 import (
 		"github.com/garyburd/redigo/redis"
-		"../../fcrypt"
+		"github.com/dzch/fcrypt"
 		"math/rand"
 		"time"
 		"fmt"
